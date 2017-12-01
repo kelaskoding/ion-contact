@@ -1,23 +1,30 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Contact App
+      Search Contact
     </ion-title>
-    <ion-buttons right>
-      <button ion-button (click)="onGotoSearchContactPage()">
-        <ion-icon name="search" style="font-size: 25px;"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
+
 <ion-content>
-  <ion-list>
+  <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
+  <div *ngIf="searching" class="spinner-container" text-center>
+    <ion-spinner></ion-spinner>
+  </div> 
+
+  <ion-row *ngIf="!found">
+    <ion-col text-center>
+      <p>No contact found</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-list *ngIf="found">
     <ion-item-sliding *ngFor="let contact of contacts">
       <ion-item>
-      <ion-thumbnail item-start>
+      <ion-thumbnail item-start>  
         <img src="assets/imgs/contact.png">
-      </ion-thumbnail>
+      </ion-thumbnail> 
       <h2>{{contact.full_name}}</h2>
       <p>{{contact.address}}</p>
     </ion-item>
@@ -26,15 +33,11 @@
           <ion-icon name="list-box"></ion-icon>
           Detail
         </button>
-        <button ion-button color="secondary" (click)="onCallNumber(contact.phone)"> 
-          <ion-icon name="call"></ion-icon>
+        <button ion-button color="secondary" (click)="onCallNumber(contact.phone)">   
+          <ion-icon name="call"></ion-icon> 
           Call
         </button>
     </ion-item-options>
     </ion-item-sliding>
-  </ion-list>
+  </ion-list> 
 </ion-content>
-
-<ion-footer no-border padding>
-  <button ion-button block (click)="onGotoAddContactPage()">Add Contact</button>
-</ion-footer>

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Detail Contact
+    </ion-title>
+    <ion-buttons right>
+      <button ion-button (click)="confirmRemove()"> 
+        <ion-icon name="trash" style="font-size: 25px;"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col text-center>
+      <img src="assets/imgs/contact.png" width="150px" height="150px">
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col text-center>
+      <h3>{{contact?.full_name}}</h3>
+    </ion-col>
+  </ion-row>
+  <ion-item>
+    <ion-icon name="home" item-start></ion-icon>
+    {{contact?.address}}
+  </ion-item>
+  <ion-item>
+    <ion-icon name="call" item-start></ion-icon>
+    {{contact?.phone}}
+  </ion-item>
+  <ion-item>
+    <ion-icon name="mail" item-start></ion-icon>
+    {{contact?.email}}
+  </ion-item>
+</ion-content>
+
+<ion-footer padding no-border> 
+  <button ion-button block color="primary" (click)="onEdit()">Edit Contact</button>
+</ion-footer>
