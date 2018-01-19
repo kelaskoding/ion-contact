@@ -10,7 +10,7 @@ export class ContactService {
 
     headers : any;
     options : any;
-    url : string = 'http://192.168.1.11/contact-api';
+    url : string = 'http://192.168.1.16/contact-api';
 
     constructor(private http : Http) {
         this.headers = new Headers({'Content-Type': 'application/json', 'Cache-Control': 'no-cache'});

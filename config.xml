@@ -84,4 +84,10 @@
     <engine name="ios" spec="~4.5.4" />
     <engine name="android" spec="~6.3.0" />
     <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
+    <allow-navigation href="http://10.255.91.7:8100" />
+    <plugin name="cordova-plugin-camera" spec="^3.0.0" />
+    <plugin name="com.synconset.imagepicker" spec="~2.1.8">
+        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="choose image from galery" />
+    </plugin>
+    <plugin name="com-badrit-base64" spec="^0.2.0" />
 </widget>

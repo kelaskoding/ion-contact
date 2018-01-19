@@ -7,6 +7,12 @@
 </ion-header>
 
 <ion-content padding>
+    <ion-row>
+      <ion-col text-center>
+        <img *ngIf="!contact.photo" src="assets/imgs/contact.png" width="200px" height="200px" (click)="presentActionSheet()"/>
+        <img *ngIf="contact.photo" [src]="dom.bypassSecurityTrustUrl(contact.photo)" width="200px" height="200px" (click)="presentActionSheet()"/> 
+      </ion-col>
+    </ion-row>
     <ion-item>
       <ion-label floating>Full Name</ion-label>
       <ion-input type="text" [(ngModel)]="contact.full_name"></ion-input>

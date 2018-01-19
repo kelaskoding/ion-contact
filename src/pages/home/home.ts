@@ -8,6 +8,7 @@ import { SearchPage } from '../search/search';
 import { AddPage } from '../add/add';
 import { DetailPage } from '../detail/detail';
 import { CallNumber } from '@ionic-native/call-number';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'page-home',
@@ -18,7 +19,8 @@ export class HomePage {
   contacts: Contact[] = [];
 
   constructor(public navCtrl: NavController, private contactService: ContactService,
-    private loadingCtrl: LoadingController, private alertCtrl: AlertController, private callNumber: CallNumber) {
+    private loadingCtrl: LoadingController, private alertCtrl: AlertController, 
+    private callNumber: CallNumber, public dom: DomSanitizer) {
 
   }
 

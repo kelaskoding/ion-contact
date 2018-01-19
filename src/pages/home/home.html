@@ -16,7 +16,8 @@
     <ion-item-sliding *ngFor="let contact of contacts">
       <ion-item>
       <ion-thumbnail item-start>
-        <img src="assets/imgs/contact.png">
+        <img *ngIf="contact.photo===null" src="assets/imgs/contact.png">
+        <img *ngIf="contact.photo!==null" [src]="dom.bypassSecurityTrustUrl(contact.photo)">
       </ion-thumbnail>
       <h2>{{contact.full_name}}</h2>
       <p>{{contact.address}}</p>

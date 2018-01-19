@@ -69,7 +69,7 @@ export class SearchPage {
       this.found = false;
     }
     this.searching = false;
-  }
+  }  
 
   onCallNumber(phone){
     this.callNumber.callNumber(phone,true);
